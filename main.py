@@ -32,11 +32,11 @@ def midi_out_callback(node, value):
         if 0x64 <= note <= 0x77:
             channel = 0x90
             if original_value == 0:
-                midi_value = 0
+                midi_value = 0  # Off
             elif original_value == 255:
-                midi_value = 0x02
+                midi_value = 0x02  # Blink
             else:
-                midi_value = 0x03
+                midi_value = 0x03  # On
         else:
             channel = 0x9B if is_active else 0x96
         node_out = [channel, note, midi_value]
