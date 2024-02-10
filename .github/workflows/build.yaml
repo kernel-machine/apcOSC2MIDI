@@ -35,14 +35,14 @@ jobs:
         run: |
           ./env/bin/pip3 install -r requirements.txt
           pyinstaller --onefile --path ./env/lib/python*/site-packages main.py
-          mv dist/main linux_build
+          mv dist/main ${{matrix.os}}_build
       - name: Building Windows
         if: ${{ matrix.os == 'windows-latest' }}
         run: | 
           .\env\Scripts\activate
           pip3 install -r requirements.txt
           pyinstaller.exe --onefile --path .\env\Lib\site-packages .\main.py
-          mv dist\main.exe windows_build.exe
+          mv dist\main.exe ${{matrix.os}}_build
       - name: Upload release assets
         uses: actions/upload-release-asset@v1
         env:
@@ -55,7 +55,7 @@ jobs:
           # target triple.
           asset_name: program-name-${{ matrix.os }}
           # The path to the file you want to upload.
-          asset_path: "*_build"
+          asset_path: ${{matrix.os}}_build
           # probably you will need to change it, but most likely you are
           # uploading a binary file
           asset_content_type: application/octet-stream
