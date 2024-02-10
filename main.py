@@ -38,9 +38,9 @@ class OSC2MIDI:
                 if original_value == 0:
                     midi_value = 0  # Off
                 elif original_value == 255:
-                    midi_value = 0x02  # Blink
-                else:
                     midi_value = 0x03  # On
+                else:
+                    midi_value = 0x02  # Blink
             else:
                 channel = ON_CHANNEL if is_active else OFF_CHANNEL
             node_out = [channel, note, midi_value]

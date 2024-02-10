@@ -6,8 +6,8 @@ Set OSC protocol as input and feedback, and listen at 127.0.0.1 at port 7700
 ## Peripheral buttons
 The peripheral, supports 3 states:
 - 0 -> OFF
-- from 1 to 254 -> ON
-- 255 -> Blink
+- from 1 to 254 -> Blink
+- 255 -> On
 
 ## RGB Pad Table
 Here follows a color table of usable color for reference, each color has two value, one for static and one for the blink state
