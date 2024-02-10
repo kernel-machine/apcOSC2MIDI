@@ -43,8 +43,3 @@ jobs:
           pip3 install -r requirements.txt
           pyinstaller.exe --onefile --path .\env\Lib\site-packages .\main.py
           mv dist\main.exe build
-      - name: Release
-        uses: softprops/action-gh-release@v0.1.15
-        with:
-          files: |
-            build
