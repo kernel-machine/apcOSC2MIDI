@@ -55,7 +55,7 @@ jobs:
           # target triple.
           asset_name: program-name-${{ matrix.os }}
           # The path to the file you want to upload.
-          asset_path: ./*_build
+          asset_path: "*_build"
           # probably you will need to change it, but most likely you are
           # uploading a binary file
           asset_content_type: application/octet-stream
