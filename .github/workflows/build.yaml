@@ -30,13 +30,13 @@ jobs:
         run: |
           pip3 install -U pyinstaller
           python3 -m venv env
-        if: ${{ matrix.os == 'ubuntu-22.04' }}
       - name: Building Linux
+        if: ${{ matrix.os == 'ubuntu-22.04' }}
         run: |
           ./env/bin/pip3 install -r requirements.txt
           pyinstaller --onefile --path ./env/lib/python*/site-packages main.py
-        if: ${{ matrix.os == 'windows-latest' }}
       - name: Building Windows
+        if: ${{ matrix.os == 'windows-latest' }}
         run: | 
           .\env\Scripts\activate
           pip3 install -r requirements.txt
